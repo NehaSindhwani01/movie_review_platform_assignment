@@ -9,6 +9,10 @@ const movieSchema = mongoose.Schema({
   synopsis: String,
   posterUrl: String,
   averageRating: { type: Number, default: 0 },
+  addedBy: { 
+    type: mongoose.Schema.Types.ObjectId, 
+    ref: 'User', 
+  }
 }, { timestamps: true });
 
 module.exports = mongoose.model('Movie', movieSchema);

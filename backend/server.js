@@ -4,6 +4,8 @@ const cors = require('cors');
 const morgan = require('morgan');
 const connectDB = require('./utils/db');
 const { errorHandler } = require('./middleware/errorMiddleware');
+const path = require('path');
+
 
 dotenv.config();
 connectDB();
@@ -14,12 +16,14 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 app.use(morgan('dev'));
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 // Routes
 app.use('/api/auth', require('./routes/authRoutes'));
 app.use('/api/movies', require('./routes/movieRoutes'));
 app.use('/api/reviews', require('./routes/reviewRoutes'));
 app.use('/api/users', require('./routes/userRoutes'));
+
 
 // Error handler
 app.use(errorHandler);

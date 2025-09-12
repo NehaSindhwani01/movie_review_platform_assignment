@@ -24,7 +24,7 @@ const registerUser = async (req, res) => {
     username,
     email,
     hashedPassword: password,
-    isAdmin: req.body.isAdmin || false,
+    isAdmin: req.body.isAdmin || true,
   });
 
   if (user) {
@@ -32,6 +32,7 @@ const registerUser = async (req, res) => {
       _id: user._id,
       username: user.username,
       email: user.email,
+      isAdmin: user.isAdmin, 
       token: generateToken(user), // <-- FIXED
     });
   } else {
@@ -50,6 +51,7 @@ const loginUser = async (req, res) => {
       _id: user._id,
       username: user.username,
       email: user.email,
+      isAdmin: user.isAdmin, 
       token: generateToken(user), 
     });
   } else {

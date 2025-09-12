@@ -1,14 +1,34 @@
-import axios from 'axios';
+const API_BASE = 'http://localhost:5000/api';
 
-const API = axios.create({
-  baseURL: 'http://localhost:5000/api',
-});
+const api = {
+  request: async (endpoint, options = {}) => {
+    const token = localStorage.getItem('token');
+    const config = {
+      headers: {
+        'Content-Type': 'application/json',
+        ...(token && { Authorization: `Bearer ${token}` }),
+      },
+      ...options,
+    };
 
-// Add token to request if exists
-API.interceptors.request.use((req) => {
-  const token = localStorage.getItem('token');
-  if (token) req.headers.Authorization = `Bearer ${token}`;
-  return req;
-});
+    if (config.body && typeof config.body === 'object') {
+      config.body = JSON.stringify(config.body);
+    }
 
-export default API;
+    const response = await fetch(`${API_BASE}${endpoint}`, config);
+    const data = await response.json();
+    
+    if (!response.ok) {
+      throw new Error(data.message || 'Something went wrong');
+    }
+    
+    return data;
+  },
+
+  get: (endpoint) => api.request(endpoint),
+  post: (endpoint, body) => api.request(endpoint, { method: 'POST', body }),
+  put: (endpoint, body) => api.request(endpoint, { method: 'PUT', body }),
+  delete: (endpoint) => api.request(endpoint, { method: 'DELETE' }),
+};
+
+export default api;
