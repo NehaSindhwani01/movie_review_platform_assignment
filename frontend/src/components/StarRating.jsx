@@ -8,9 +8,9 @@ const StarRating = ({ rating, interactive = false, onRatingChange, size = "w-5 h
           key={star}
           className={`${size} ${
             star <= rating 
-              ? 'text-yellow-400 fill-current' 
-              : 'text-gray-300'
-          } ${interactive ? 'cursor-pointer hover:text-yellow-400' : ''}`}
+              ? 'text-amber-400 fill-current' 
+              : 'text-gray-400'
+          } ${interactive ? 'cursor-pointer hover:text-amber-400 transition-colors' : ''}`}
           onClick={interactive ? () => onRatingChange(star) : undefined}
         />
       ))}

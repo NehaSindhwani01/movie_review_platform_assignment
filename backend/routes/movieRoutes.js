@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { getMovies, getMovieById, addMovie, deleteMovie } = require('../controllers/movieController');
+const { getMovies, getMovieById, addMovie } = require('../controllers/movieController');
 const { protect, admin } = require('../middleware/authMiddleware');
 
 router.route('/')
@@ -9,6 +9,5 @@ router.route('/')
 
 router.route('/:id')
   .get(getMovieById)
-  .delete(protect, admin, deleteMovie); // Only admin who added it can delete
 
 module.exports = router;

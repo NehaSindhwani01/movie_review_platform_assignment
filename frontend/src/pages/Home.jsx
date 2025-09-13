@@ -26,35 +26,37 @@ const Home = () => {
   if (loading) return <LoadingSpinner />;
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-      <div className="text-center mb-12">
-        <h1 className="text-4xl font-bold text-gray-900 mb-4">
-          Welcome to MovieHub
-        </h1>
-        <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-          Discover amazing movies, read reviews, and create your personal watchlist
-        </p>
-      </div>
-
-      <section className="mb-12">
-        <div className="flex items-center gap-3 mb-6">
-          <Star className="w-6 h-6 text-yellow-400" />
-          <h2 className="text-2xl font-bold text-gray-900">Top Rated Movies</h2>
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 to-indigo-900 py-8 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto">
+        <div className="text-center mb-12">
+          <h1 className="text-4xl font-bold bg-gradient-to-r from-amber-400 to-yellow-300 bg-clip-text text-transparent mb-4">
+            Welcome to MovieHub
+          </h1>
+          <p className="text-xl text-gray-300 max-w-2xl mx-auto">
+            Discover amazing movies, read reviews, and create your personal watchlist
+          </p>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {movies.map((movie) => (
-            <MovieCard key={movie._id} movie={movie} />
-          ))}
-        </div>
-      </section>
 
-      <div className="text-center">
-        <Link
-          to="/movies"
-          className="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors font-semibold"
-        >
-          Explore All Movies
-        </Link>
+        <section className="mb-12">
+          <div className="flex items-center justify-center gap-3 mb-6">
+            <Star className="w-6 h-6 text-amber-400" />
+            <h2 className="text-2xl font-bold text-white">Top Rated Movies</h2>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            {movies.map((movie) => (
+              <MovieCard key={movie._id} movie={movie} />
+            ))}
+          </div>
+        </section>
+
+        <div className="text-center">
+          <Link
+            to="/movies"
+            className="inline-block bg-amber-500 text-gray-900 px-8 py-3 rounded-lg font-semibold hover:bg-amber-400 transition-colors"
+          >
+            Explore All Movies
+          </Link>
+        </div>
       </div>
     </div>
   );

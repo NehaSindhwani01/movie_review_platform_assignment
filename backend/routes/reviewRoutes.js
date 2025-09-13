@@ -7,7 +7,5 @@ router.route('/:movieId')
   .get(getReviews)
   .post(protect, submitReview);
 
-router.route('/delete/:id')
-  .delete(protect, deleteReview); // Only user who submitted can delete
 
 module.exports = router;
