@@ -201,24 +201,12 @@ NODE_ENV=development
 - Admin-only routes and permissions
 - Content management tools
 
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-## 📝 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## 🙏 Acknowledgments
 
 - [Tailwind CSS](https://tailwindcss.com/) for the utility-first CSS framework
 - [Lucide React](https://lucide.dev/) for beautiful icons
 - [MongoDB Atlas](https://www.mongodb.com/atlas) for cloud database hosting
-- Movie poster images from various sources (ensure you have proper licensing)
 
 
 
