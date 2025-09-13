@@ -57,8 +57,7 @@ A modern, full-stack movie review and discovery platform built with React, Node.
 
 ### Clone Repository
 ```bash
-git clone https://github.com/yourusername/moviehub.git
-cd moviehub
+git clone [https://github.com/NehaSindhwani01/movie_review_platform_assignment]
 ```
 
 ### Backend Setup
